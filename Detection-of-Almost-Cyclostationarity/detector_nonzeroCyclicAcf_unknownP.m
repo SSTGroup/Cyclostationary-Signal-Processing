@@ -1,4 +1,4 @@
-function gamma = detector_nonzeroCyclicAcf_unknownP(x,Lags,window_length,P_max,numD)
+function varargout = detector_nonzeroCyclicAcf_unknownP(x,Lags,window_length,P_max,numD)
 % DETECTOR_NONZEROCYCLICACF_UNKNOWNP: Obtains the detector of [1](based on
 % Giannakis' detector [2]) for a given set of candidate cycle frequencies.
 %
@@ -10,6 +10,7 @@ function gamma = detector_nonzeroCyclicAcf_unknownP(x,Lags,window_length,P_max,n
 %           numD = grid size of fractional parts of cycle period
 %
 %           gamma = detector statistic
+%           frac_nonzeroCyclicAcf = fractional part corresponding to maximum test statistic
 %
 % [1] J. Lunden, V. Koivunen, A. Huttunen, and H.V. Poor, "Collaborative
 %     cyclostationary spectrum sensing for cognitive radio systems",  IEEE
@@ -18,6 +19,9 @@ function gamma = detector_nonzeroCyclicAcf_unknownP(x,Lags,window_length,P_max,n
 %     cyclostationarity," IEEE Trans. Signal Process., vol. 42, no. 9, 1994.
 %
 gamma= zeros(P_max,1);
+if nargout > 1
+   frac_nonzeroCyclicAcf = zeros(P_max,1); 
+end
 gamma_temp = zeros(numD,1);
 
 [L,N_samples,M] = size(x);
@@ -38,6 +42,11 @@ for P = 2:P_max
         gamma_temp(ii) = detector_Poor(x,x_shifted,1/P_cand(ii),Lags,window_length); % obtain detector statistic for each candidate cycle period
     end
     
-    gamma(P)= max(gamma_temp);  % choose the cycle period that maximizes the statistic 
+    [gamma(P), id_frac]= max(gamma_temp);  % choose the cycle period that maximizes the statistic 
+    frac_nonzeroCyclicAcf(P) = epsilon(id_frac);
+end
+varargout{1} = gamma;
+if nargout > 1
+   varargout{2} = frac_nonzeroCyclicAcf; 
 end
 end

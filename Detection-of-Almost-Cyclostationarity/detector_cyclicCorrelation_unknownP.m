@@ -1,4 +1,4 @@
-function gamma = detector_cyclicCorrelation_unknownP(x,tau_0,P_max,numD)
+function varargout = detector_cyclicCorrelation_unknownP(x,tau_0,P_max,numD)
 % DETECTOR_CYCLICCORRELATION_UNKNOWNP: Obtains the detector of [1](based on
 % Gardner's detector [2]) for a given set of candidate cycle frequencies.
 %
@@ -9,6 +9,7 @@ function gamma = detector_cyclicCorrelation_unknownP(x,tau_0,P_max,numD)
 %           numD = grid size of fractional parts of cycle period
 %
 %           gamma = detector statistic
+%           frac_cyclicCorr = fractional part corresponding to maximum test statistic
 %
 % [1] P. Urriza, E. Rebeiz, and D. Cabric, "Multiple antenna
 %     cyclostationary spectrum sensing based on the cyuclic correlation
@@ -19,6 +20,9 @@ function gamma = detector_cyclicCorrelation_unknownP(x,tau_0,P_max,numD)
 %     Conference on Signaals, Systems and Computers, pp.3-7, 1990.
 %
 gamma= zeros(P_max,1);
+if nargout > 1
+   frac_cyclicCorr = zeros(P_max,1); 
+end
 gamma_temp = zeros(numD,1);
 [L,N_samples,M] = size(x);
 
@@ -37,6 +41,11 @@ for P_int=2:P_max
         gamma_temp(ii) = detectors_Gardner(x,x_shifted,tau_0); % obtain detector statistic for each candidate cycle period
     end
     
-    gamma(P_int) = max(gamma_temp); % choose the cycle period that maximizes the statistic 
+    [gamma(P_int), id_frac] = max(gamma_temp); % choose the cycle period that maximizes the statistic 
+    frac_cyclicCorr(P_int) = epsilon(id_frac);
+end
+varargout{1} = gamma;
+if nargout > 1
+   varargout{2} = frac_cyclicCorr; 
 end
 end
