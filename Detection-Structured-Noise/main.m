@@ -2,7 +2,8 @@
 %
 % "LMPIT-inspired Tests for Detecting a Cyclostationary Signal in Noise with
 % Spatio-Temporal Structure" by Aaron Pries, David Ramirez and
-% Peter J. Schreier, https://arxiv.org/abs/1803.08791
+% Peter J. Schreier, IEEE Transactions on Wireless Communications,
+% vol. 17, no. 9, pp. 6321-6334, Sept. 2018
 %
 % ## ----------------------------------------------------------------------------
 % ##

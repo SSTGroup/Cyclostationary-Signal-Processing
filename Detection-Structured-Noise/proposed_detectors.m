@@ -2,7 +2,9 @@ function [GLRT, LMPIT] = proposed_detectors(z,L,P,noise_type)
 %PROPOSED_DETECTORS 
 %   This computes the GLRTs and LMPITs / LMPIT-inspired tests proposed in
 %   A. Pries, D. Ramírez, P. J. Schreier "LMPIT-inspired Tests for Detecting
-%   a Cyclostationary Signal in Noise with Spatio-Temporal Structure," (submitted)
+%   a Cyclostationary Signal in Noise with Spatio-Temporal Structure,",
+%   IEEE Transactions on Wireless Communications, vol. 17, no. 9,
+%   pp. 6321-6334, Sept. 2018
 %
 %   Input:
 %       z           -   received data
