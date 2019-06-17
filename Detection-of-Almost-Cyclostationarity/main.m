@@ -7,7 +7,8 @@
 %
 % "Joint Detection of Almost-Cyclostationary Signals and Estimation of 
 % their Cycle Period" by Stefanie Horstmann, David Ramirez and 
-% Peter J. Schreier, Submitted in IEEE Signal Processing Letters, May 2017
+% Peter J. Schreier,  IEEE Signal Processing Letters, vol.25, no.11,pp. 
+% 1695 - 1699, 2019
 % 
 % ## ----------------------------------------------------------------------------
 % ##
