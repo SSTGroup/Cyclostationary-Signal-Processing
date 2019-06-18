@@ -15,3 +15,7 @@ Stefanie Horstmann: <stefanie.horstmann@sst.upb.de>
 \[2] A. Pries, D. Ramírez, and P. J. Schreier, "LMPIT-inspired Tests for Detecting a Cyclostationary Signal in Noise with Spatio-Temporal Structure", IEEE Transactions on Wireless Communications, vol. 17, no. 9, pp. 6321-6334, Sept. 2018
 
 \[3] S. Horstmann, D. Ramirez, and P.J. Schreier, "Joint Detection of Almost-Cyclostationary Signals and Estimation of their Cycle Period", IEEE Signal Processing Letters, vol. 25, no. 11, pp. 1695-1699, 2018.
+
+\[4] S. Horstmann, D. Ramírez, and P.J. Schreier, "Two-Channel Passive Detection Exploiting Cyclostationarity", accepted for EUSIPCO 2019 (http://arxiv.org/abs/1906.06973)
+
+\[5] S. Horstmann, D. Ramírez, and P.J. Schreier, "Two-Channel Passive Detection of Cyclostationary Signals" submitted to IEEE Transaction on Signal Processing, June 2019
